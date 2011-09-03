@@ -19,12 +19,31 @@
   <% if user_signed_in? %>
   <table>
   <li>
-    <p ><%= current_user.roles %></p></il>
+    <p ><%= current_user.roles %></p></li>
   <li>
-    <p > UserID: --> <%= current_user.id %></p></il>
+    <p > UserID: --> <%= current_user.id %></p></li>
     </table>
   <% end %>
+           <%=  link_to 'Items', items_path %>
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_user_session_path, :method => 'delete') %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>
+  </li>
+<% end %>
 
+<% if user_signed_in? %>
+  <li>
+  <%= link_to('Edit registration', edit_user_registration_path) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Register', new_user_registration_path)  %>
+  </li>
+<% end %>
 <%= yield %>
 
 </body>

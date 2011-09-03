@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
   # GET /items/new.xml
   def new
     @item = Item.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @item }
@@ -48,7 +47,7 @@ class ItemsController < ApplicationController
   # POST /items.xml
   def create
     @item = Item.new(params[:item])
-
+    @item.user_id = current_user.id
     respond_to do |format|
       if @item.save
         format.html { redirect_to(@item, :notice => 'Item was successfully created.') }

@@ -12,25 +12,26 @@
     <th></th>
   </tr>
 
- 
-<% @items.each do |item| %>
-  <tr>
-    <td><%= item.name %></td>
-    <td><%= item.howmany %></td>
-    <td><%= item.price %></td>
-    <td><%= item.enabled %></td>
-    <td><%= item.owner %></td>
-    <% if can? :read, item %> 
-    <td><%= link_to 'Show', item %></td>
-      <% end %>
-     <% if can? :update, item %>  
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <% end %>
-    <% if can? :destroy, item %> 
-    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>    <% end %>
-  </tr>
 
-  <% end %>  
+  <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.howmany %></td>
+        <td><%= item.price %></td>
+        <td><%= item.enabled %></td>
+        <td><%= item.user.email
+        %></td>
+        <% if can? :read, item %>
+            <td><%= link_to 'Show', item %></td>
+        <% end %>
+        <% if can? :update, item %>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <% end %>
+        <% if can? :destroy, item %>
+            <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>    <% end %>
+      </tr>
+
+  <% end %>
 </table>
 
 <br />
