@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  howmany: MyString
+  price: 1
+  enabled: false
+
+two:
+  name: MyString
+  howmany: MyString
+  price: 1
+  enabled: false

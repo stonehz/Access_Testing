@@ -1,0 +1,38 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Name |</th>
+    <th>Howmany |</th>
+    <th>Price |</th>
+    <th>Enabled |</th>
+    <th>Owner |</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+ 
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.howmany %></td>
+    <td><%= item.price %></td>
+    <td><%= item.enabled %></td>
+    <td><%= item.owner %></td>
+    <% if can? :read, item %> 
+    <td><%= link_to 'Show', item %></td>
+      <% end %>
+     <% if can? :update, item %>  
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <% end %>
+    <% if can? :destroy, item %> 
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>    <% end %>
+  </tr>
+
+  <% end %>  
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

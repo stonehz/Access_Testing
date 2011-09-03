@@ -1,0 +1,7 @@
+development:
+  adapter: mysql
+  database: test_development
+  username: zoneone
+  password: zoneone
+  host: localhost
+  

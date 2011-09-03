@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AccessTest</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <% if flash[:alert] %>
+    <p class="flash-error"><%= flash[:alert] %></p>
+  <% end %>
+  <% if flash[:notice] %>
+    <p class="flash-notice"><%= flash[:notice] %></p>
+  <% end %>
+  <% if flash[:error] %>
+    <p class="flash-error"><%= flash[:error] %></p>
+  <% end %>
+  <% if user_signed_in? %>
+  <table>
+  <li>
+    <p ><%= current_user.roles %></p></il>
+  <li>
+    <p > UserID: --> <%= current_user.id %></p></il>
+    </table>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>
